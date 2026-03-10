@@ -44,7 +44,7 @@ public void draw ()
 }
 public boolean isWon()
 {
-if(sig==50&&big==350){
+if(sig==50&&big>=350){
 return true;
 }
      return false;

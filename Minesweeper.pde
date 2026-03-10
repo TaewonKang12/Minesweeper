@@ -3,6 +3,7 @@ import de.bezier.guido.*;
 int NUM_ROWS=20;
 int NUM_COLS=20;
 int sig = 0;
+int big = 0;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines = new ArrayList <MSButton> (); //ArrayList of just the minesweeper buttons that are mined
 void setup ()
@@ -43,7 +44,7 @@ public void draw ()
 }
 public boolean isWon()
 {
-if(sig==50){
+if(sig==50&&big==350){
 return true;
 }
      return false;
@@ -56,6 +57,9 @@ public void displayLosingMessage()
         buttons[i][r].clicked=true;
         }else{
         buttons[i][r].setLabel("X");
+        }
+        if(buttons[i][r].flagged==true){
+        buttons[i][r].flagged = false;
         }
   }
   }
@@ -130,6 +134,7 @@ public class MSButton
     // called by manager
     public void mousePressed () 
     {
+        big++;
         if(mouseButton == LEFT){
         clicked = true;
         }

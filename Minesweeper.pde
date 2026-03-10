@@ -25,7 +25,7 @@ void setup ()
 }
 public void setMines()
 {
-  int numMines=2;
+  int numMines=50;
   while(mines.size()<numMines){
     int r = (int)(Math.random() * NUM_ROWS);
     int c = (int)(Math.random() * NUM_COLS);
@@ -43,7 +43,7 @@ public void draw ()
 }
 public boolean isWon()
 {
-if(sig==2){
+if(sig==50){
 return true;
 }
      return false;
@@ -140,6 +140,9 @@ public class MSButton
         }
         }else if (mouseButton == RIGHT && flagged == true){
         flagged = false;
+        if(mines.contains(this)){
+        sig--;
+        }
         }
         else if(mines.contains(this)){
         displayLosingMessage();
